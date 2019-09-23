@@ -2,10 +2,24 @@ body {
   margin: 0 50px;
 }
 
+p {
+  text-align: justify;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
 header {
   background-color: #f1f1f1;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 header img {
@@ -13,6 +27,56 @@ header img {
   height: auto;
   float: left;
   padding: 8px 16px;
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0%      {transform: rotate(0deg)}
+  25%     {transform: rotate(90deg)}
+  50%     {transform: rotate(180deg)}
+  75%     {transform: rotate(270deg)}
+  100%    {transform: rotate(360deg)}
+}
+
+.dropdown_animation {
+  box-sizing: border-box;
+  box-shadow: 8px 8px 5px grey;
+  padding: 20px;
+  opacity: 0;
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  top: -200px;
+  z-index: 1;
+}
+
+.dropdown_img:hover~.dropdown_animation, .dropdown_animation:hover{
+  display: block;
+  animation-name: appearence;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appearence {
+  0% { opacity: 0; top: -200px; z-index: -1; }
+  50% { z-index: -1; }
+  100% { opacity: 1; top: 0px; z-index: 1; }
+}
+
+.dropdown_img {
+   display: block;
+   width: 100%;
+   margin: 0 auto;
+   max-width: 800px;
+   transition: max-width 2s;
+}
+
+.dropdown_img:active {
+  max-width: 80vw;
 }
 
 nav ul {
