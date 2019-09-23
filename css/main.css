@@ -58,7 +58,7 @@ header img {
   z-index: 1;
 }
 
-.dropdown_img:hover~.dropdown_animation, .dropdown_animation:hover{
+.dropdown_img:hover + .dropdown_animation, .dropdown_animation:hover{
   display: block;
   animation-name: appearence;
   animation-duration: 2s;
