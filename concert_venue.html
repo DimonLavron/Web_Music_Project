@@ -1,38 +1,53 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-  <title>The Neighbourhood</title>
+  <title>Concert Venue</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-  <header>
-    <img src="images/The-Neighbourhood-Logo.png" alt="Logo">
-    <nav>
-      <ul>
-        <li>
-          <a href="index.html">Main</a>
-        </li>
-        <li>
-          <a href="#">News</a>
-        </li>
-        <li class="dropdown">
-          <a href="#">For fans</a>
-          <div class="dropdown-content">
-            <a href="#">Fan club</a>
-            <a href="#">Tour schedule</a>
-            <a href="#">Lyrics</a>
-          </div>
-        </li>
-        <li>
-          <a href="#">Fans appeal</a>
-        </li>
-        <li>
-          <a href="#">Concert venue</a>
-        </li>
-        <li>
-          <a href="#">Admin</a>
-        </li>
-      </ul>
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <a href="#" class="navbar-brand">
+        <img src="images/The-Neighbourhood-Logo Light.png" alt="Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Main</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">News</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">For fans</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Fan club</a>
+              <a href="#" class="dropdown-item">Tour schedule</a>
+              <a href="#" class="dropdown-item">Lyrics</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Fans appeal</a>
+          </li>
+          <li class="nav-item">
+            <a href="concert_venue.html" class="nav-link">Concert venue</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Admin</a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
   <main>

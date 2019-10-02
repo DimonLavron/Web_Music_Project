@@ -1,5 +1,6 @@
 body {
   margin: 0 50px;
+  font-size: 1em;
 }
 
 p {
@@ -15,7 +16,7 @@ h3 {
   text-align: center;
 }
 
-header {
+/* header {
   background-color: #f1f1f1;
   display: flex;
   align-items: center;
@@ -24,25 +25,12 @@ header {
   position: sticky;
   top: 0;
   left: 0;
-}
+} */
 
 header img {
   width: 42px;
   height: auto;
-  float: left;
-  padding: 8px 16px;
-  animation-name: spin;
-  animation-duration: 4s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes spin {
-  0%      {transform: rotate(0deg)}
-  25%     {transform: rotate(90deg)}
-  50%     {transform: rotate(180deg)}
-  75%     {transform: rotate(270deg)}
-  100%    {transform: rotate(360deg)}
+  animation: spin 4s linear infinite;
 }
 
 .dropdown_animation {
@@ -60,15 +48,7 @@ header img {
 
 .dropdown_img:hover + .dropdown_animation, .dropdown_animation:hover{
   display: block;
-  animation-name: appearence;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes appearence {
-  0% { opacity: 0; top: -200px; z-index: -1; }
-  50% { z-index: -1; }
-  100% { opacity: 1; top: 0px; z-index: 1; }
+  animation: appearence 2s forwards;
 }
 
 .dropdown_img {
@@ -83,7 +63,7 @@ header img {
   max-width: 80vw;
 }
 
-nav ul {
+/* nav ul {
   display: inline-block;
   list-style-type: none;
   margin: 0;
@@ -130,7 +110,32 @@ nav li a:hover, .dropdown-content a:hover {
 li.dropdown {
   display: inline-block;
 }
+*/
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-menu {
   display: block;
+}
+
+@keyframes spin {
+  0%      {transform: rotate(0deg)}
+  25%     {transform: rotate(90deg)}
+  50%     {transform: rotate(180deg)}
+  75%     {transform: rotate(270deg)}
+  100%    {transform: rotate(360deg)}
+}
+
+@keyframes appearence {
+  0% { opacity: 0; top: -200px; z-index: -1; }
+  50% { z-index: -1; }
+  100% { opacity: 1; top: 0px; z-index: 1; }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  .float-right {
+    width: 65%;
+  }
 }
