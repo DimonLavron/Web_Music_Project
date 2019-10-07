@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Concert Venue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -42,44 +43,33 @@
               <a href="fans_appeal.html" class="nav-link">Fans appeal</a>
             </li>
             <li class="nav-item">
-              <a href="concert_venue.html" class="nav-link active">Concert venue</a>
+              <a href="concert_venue.html" class="nav-link">Concert venue</a>
             </li>
             <li class="nav-item">
-              <a href="admin.html" class="nav-link">Admin</a>
+              <a href="admin.html" class="nav-link active">Admin</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-      <section>
-        <h1>
-          Nearest concert
-        </h1>
-        <h3>
-          The place of the next concert
-        </h3>
-        <img src="images/cosmopolitan_lv.png" alt="The Cosmopolitan of Las Vegas" class="dropdown_img">
-        <div class="dropdown_animation">
-          <h3 style="margin: 0">
-            Date, address, contact info
-          </h3>
-          <p style="margin: auto; width: 500px;">
-            <em>Date:</em> Friday, 11.10.2019 <br>
-            <em>Address:</em> 3708 Las Vegas Boulevard South Las Vegas, NV  89109, USA <br>
-            <em>Info links:</em> <br>
-            <a href="https://www.cosmopolitanlasvegas.com/" target="_blank">The Cosmopolitan of Las Vegas</a> <br>
-            <a href="https://www1.ticketmaster.com/the-neighbourhood/event/1700567CB71869F1" target="_blank">Buy tickets now!</a> <br>
-            <a href="https://www.google.com/maps/search/%D0%93%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B8%D1%86%D1%8B/@36.1227538,-115.1679516,14z/data=!3m1!4b1!4m5!2m4!5m3!5m2!4m1!1i2" target="_blank">Hotels to stay nearby</a>
-          </p>
-        </div>
-      </section>
+      <h1>
+        Admin
+      </h1>
+      <label for="title"><strong>Title</strong></label><br>
+      <input type="text" name="title" size="100" placeholder="News title"><br>
+      <label for="text"><strong>Text</strong></label><br>
+      <textarea name="text" rows="15" cols="103" placeholder="News body"></textarea><br>
+      <label for="image"><strong>Image</strong></label><br>
+      <input type="file" name="image"><br><br>
+      <input type="submit" value="Publish">
     </main>
     <hr>
     <footer>
       <p style="text-align: center;">
-        We are on <a href="https://soundcloud.com/theneighbourhood" target="_blank">Souncloud</a> <br>
+        We are on <a href="https://soundcloud.com/theneighbourhood">Souncloud</a> <br>
         We are on <a href="https://genius.com/artists/The-neighbourhood" target="_blank">Genius</a>
+      </p>
       </p>
     </footer>
   </body>

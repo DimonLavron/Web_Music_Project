@@ -1,5 +1,5 @@
 body {
-  margin: 0 50px;
+  margin: auto 50px;
   font-size: 1em;
 }
 
@@ -8,24 +8,22 @@ p {
 }
 
 h1 {
+  line-height: 2em;
   font-size: 2em;
   text-align: center;
 }
 
 h3 {
+  line-height: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
-/* header {
-  background-color: #f1f1f1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.banner {
   width: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
-} */
+  height: 50%;
+  opacity: 1;
+}
 
 header img {
   width: 42px;
@@ -63,7 +61,73 @@ header img {
   max-width: 80vw;
 }
 
-/* nav ul {
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+table {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card-footer {
+  text-align: right;
+}
+
+.news-card {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+
+input[type="text"], textarea {
+  max-width: 100%;
+}
+
+@keyframes spin {
+  0%      {transform: rotate(0deg)}
+  25%     {transform: rotate(90deg)}
+  50%     {transform: rotate(180deg)}
+  75%     {transform: rotate(270deg)}
+  100%    {transform: rotate(360deg)}
+}
+
+@keyframes appearence {
+  0% { opacity: 0; top: -200px; z-index: -1; }
+  50% { z-index: -1; }
+  100% { opacity: 1; top: 0px; z-index: 1; }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  .float-right {
+    width: 65%;
+  }
+
+  .news-card {
+    max-width: 450px;
+  }
+
+  table {
+    font-size: 0.7em;
+  }
+}
+
+/* header {
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+nav ul {
   display: inline-block;
   list-style-type: none;
   margin: 0;
@@ -111,31 +175,3 @@ li.dropdown {
   display: inline-block;
 }
 */
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-@keyframes spin {
-  0%      {transform: rotate(0deg)}
-  25%     {transform: rotate(90deg)}
-  50%     {transform: rotate(180deg)}
-  75%     {transform: rotate(270deg)}
-  100%    {transform: rotate(360deg)}
-}
-
-@keyframes appearence {
-  0% { opacity: 0; top: -200px; z-index: -1; }
-  50% { z-index: -1; }
-  100% { opacity: 1; top: 0px; z-index: 1; }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    font-size: 0.8em;
-  }
-
-  .float-right {
-    width: 65%;
-  }
-}
