@@ -79,9 +79,35 @@ table {
   margin: 0 auto;
 }
 
-
 input[type="text"], textarea {
   max-width: 100%;
+}
+
+hr.fans-appeal {
+  border-top: 1.5px solid black;
+}
+
+.fan-card {
+  float: left;
+  margin-right: 20px;
+}
+
+.fans-submit {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.admin-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.admin-flex img {
+  max-width: 50%;
 }
 
 @keyframes spin {
@@ -113,6 +139,35 @@ input[type="text"], textarea {
 
   table {
     font-size: 0.7em;
+  }
+
+  .fan-card {
+    display: inline-block;
+    margin-bottom: 10px;
+    float: none;
+  }
+
+  .appeal-form {
+    flex-direction: column-reverse;
+    align-items: flex-start!important;
+  }
+
+  .fans-submit {
+    margin-right: 0px;
+    margin-top: 10px;
+  }
+
+  .admin-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-flex button, .admin-flex input[type="file"] {
+    margin-top: 20px;
+  }
+
+  .admin-flex img {
+    max-width: 70%;
   }
 }
 
