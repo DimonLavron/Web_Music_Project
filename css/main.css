@@ -85,7 +85,7 @@ input[type="text"], textarea {
 }
 
 hr.fans-appeal {
-  border-top: 1.5px solid black;
+  border-top: 2px solid black;
 }
 
 .fan-card {
@@ -172,56 +172,3 @@ hr.fans-appeal {
     max-width: 70%;
   }
 }
-
-/* header {
-  background-color: #f1f1f1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
-}
-nav ul {
-  display: inline-block;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-}
-nav li {
-  float: left;
-}
-nav li a {
-  display: inline-block;
-  color: #000;
-  text-align: center;
-  padding: 25px 16px;
-  text-decoration: none;
-  transition: background-color 0.35s, color 0.35s;
-}
-nav li a:hover, .dropdown-content a:hover {
-  background-color: #555;
-  color: white;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-.dropdown-content a {
-  display: block;
-  color: #000;
-  text-align: center;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-li.dropdown {
-  display: inline-block;
-}
-*/

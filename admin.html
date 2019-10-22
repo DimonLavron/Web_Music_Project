@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <script src="js/admin.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
@@ -63,10 +65,10 @@
         </div>
         <div class="admin-flex m-3">
           <div class="">
-            <input type="text" name="title" size="100" placeholder="News title" class="form-control"><br>
-            <textarea name="text" rows="15" cols="103" placeholder="News body" class="form-control"></textarea>
+            <input type="text" id="news-title"name="title" size="100" placeholder="News title" class="form-control"><br>
+            <textarea name="text" id="news-body" rows="15" cols="103" placeholder="News body" class="form-control"></textarea>
           </div>
-          <button type="submit" class="btn btn-dark mr-3">Publish</button>
+          <button type="submit" class="btn btn-dark mr-3" onclick="publishNews()">Publish</button>
         </div>
       </section>
     </main>

@@ -10,6 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <script src="js/fans_appeal.js"></script>
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body>
@@ -57,7 +59,7 @@
         Fans Appeal
       </h1>
       <hr class="fans-appeal">
-      <section>
+      <section class="overflow-auto">
         <div class="card fan-card" style="border: 1px solid black">
           <div class="card-body">
             Fan name <br> 22:22 <br> 09.09.19
@@ -72,7 +74,7 @@
         </div>
       </section>
       <hr class="fans-appeal">
-      <section>
+      <section class="overflow-auto">
         <div class="card fan-card" style="border: 1px solid black">
           <div class="card-body">
             Fan name <br> 22:22 <br> 09.09.19
@@ -87,7 +89,7 @@
         </div>
       </section>
       <hr class="fans-appeal">
-      <section>
+      <section class="overflow-auto">
         <div class="card fan-card" style="border: 1px solid black">
           <div class="card-body">
             Fan name <br> 22:22 <br> 09.09.19
@@ -104,8 +106,8 @@
       <hr class="fans-appeal">
       <h3>Leave your appeal</h3>
       <section class="d-flex justify-content-center align-items-end appeal-form">
-        <button type="submit" class="btn btn-dark fans-submit">Send</button>
-        <textarea name="fans-appeal" rows="8" cols="60" placeholder="Write an appeal..." class="form-control" style="width: 500px;"></textarea>
+        <button type="submit" class="btn btn-dark fans-submit" onclick="publishFansAppeal()">Send</button>
+        <textarea name="fans-appeal" id="appeal" rows="8" cols="60" placeholder="Write an appeal..." class="form-control" style="width: 500px;"></textarea>
       </section>
     </main>
     <footer>
