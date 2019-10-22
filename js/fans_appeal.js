@@ -15,13 +15,21 @@ function createCard(text, isHeader) {
   return card;
 }
 
+function formatDate(num) {
+  if (num < 10) {
+    return '0' + num;
+  }
+  return '' + num;
+}
+
 function publishFansAppeal() {
   var text = document.getElementById('appeal').value;
   if (text.trim() == '') {
     alert('Appeal can not be empty!');
   }
   else {
-    var header = createCard('Fan name <br> 22:22 <br> 09.09.19', true);
+    var date = new Date();
+    var header = createCard('Fan name <br>' + formatDate(date.getHours()) + ':' + formatDate(date.getMinutes()) + '<br>' + formatDate(date.getDate()) + '.' + formatDate(date.getMonth() + 1) + '.' + formatDate(date.getFullYear() % 100), true);
     var body = createCard(text, false);
     var sec = document.createElement('section');
     sec.className = 'overflow-auto';
