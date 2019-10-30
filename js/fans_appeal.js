@@ -1,21 +1,18 @@
 var appeals = []
 
 document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('appeals')) {
-    appeals = JSON.parse(localStorage.getItem('appeals'))
-    for (i = 0; i < appeals.length; i++) {
-      publishAppeal(appeals[i].text);
+  window.addEventListener('online', function() {
+    if (localStorage.getItem('appeals')) {
+      appeals = JSON.parse(localStorage.getItem('appeals'))
+      for (i = 0; i < appeals.length; i++) {
+        publishAppeal(appeals[i].text);
+      }
+      localStorage.removeItem('appeals');
+      appeals = [];
+      // Data Transfer function
+      console.log('Appeals successfuly transfered from localStorage to server!');
     }
-  }
-});
-
-window.addEventListener('online', function() {
-  if (localStorage.getItem('appeals')) {
-    localStorage.removeItem('appeals')
-    appeals = []
-    // Data Transfer function
-    console.log('Appeals successfuly transfered from localStorage to server!')
-  }
+  });
 });
 
 function createCard(text, isHeader) {

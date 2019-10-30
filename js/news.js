@@ -1,21 +1,18 @@
 var news = []
 
 document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('news')) {
-    news = JSON.parse(localStorage.getItem('news'))
-    for (i = 0; i < news.length; i++) {
-      publishNews(news[i]);
+  window.addEventListener('online', function() {
+    if (localStorage.getItem('news')) {
+      news = JSON.parse(localStorage.getItem('news'))
+      for (i = 0; i < news.length; i++) {
+        publishNews(news[i]);
+      }
+      localStorage.removeItem('news');
+      news = [];
+      // Data Transfer function
+      console.log('News successfuly transfered from localStorage to server!')
     }
-  }
-});
-
-window.addEventListener('online', function() {
-  if (localStorage.getItem('news')) {
-    localStorage.removeItem('news')
-    news = []
-    // Data Transfer function
-    console.log('News successfuly transfered from localStorage to server!')
-  }
+  });
 });
 
 function publishNews(data) {
