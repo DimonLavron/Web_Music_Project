@@ -70,14 +70,15 @@ table {
   margin: 0 auto;
 }
 
-.card-footer {
-  text-align: right;
+.news {
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .news-card {
-  box-sizing: border-box;
   max-width: 300px;
-  margin: 0 5px;
+  margin: 10px;
 }
 
 input[type="text"], textarea {
@@ -134,10 +135,10 @@ hr.fans-appeal {
     width: 65%;
   }
 
-  .news-card {
-    max-width: 450px;
-    margin: 0 auto;
-  }
+  /* .news-card {
+    width: 450px;
+    margin: 50px;
+  } */
 
   table {
     font-size: 0.7em;
