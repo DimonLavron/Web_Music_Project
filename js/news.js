@@ -1,17 +1,21 @@
-var news = []
+var news = [];
+var storage;
 
 document.addEventListener('DOMContentLoaded', function() {
+  storage = new Provider();
+
   window.addEventListener('online', function() {
-    if (localStorage.getItem('news')) {
-      news = JSON.parse(localStorage.getItem('news'))
-      for (i = 0; i < news.length; i++) {
-        publishNews(news[i]);
+    storage.provider.get('news', function(data) {
+      if (data) {
+        for (i = 0; i < data.length; i++) {
+          publishNews(data[i]);
+        }
+        storage.provider.delete('news');
+        news = [];
+        // Data Transfer function
+        console.log('News successfuly transfered from provider to server!');
       }
-      localStorage.removeItem('news');
-      news = [];
-      // Data Transfer function
-      console.log('News successfuly transfered from localStorage to server!')
-    }
+    });
   });
 });
 

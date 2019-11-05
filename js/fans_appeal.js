@@ -1,17 +1,21 @@
-var appeals = []
+var appeals = [];
+var storage;
 
 document.addEventListener('DOMContentLoaded', function() {
+  storage = new Provider();
+
   window.addEventListener('online', function() {
-    if (localStorage.getItem('appeals')) {
-      appeals = JSON.parse(localStorage.getItem('appeals'))
-      for (i = 0; i < appeals.length; i++) {
-        publishAppeal(appeals[i].text);
+    storage.provider.get('appeals', function(data) {
+      if (data) {
+        for (i = 0; i < data.length; i++) {
+          publishAppeal(data[i].text);
+        }
+        storage.provider.delete('appeals');
+        appeals = [];
+        // Data Transfer function
+        console.log('Appeals successfuly transfered from provider to server!');
       }
-      localStorage.removeItem('appeals');
-      appeals = [];
-      // Data Transfer function
-      console.log('Appeals successfuly transfered from localStorage to server!');
-    }
+    });
   });
 });
 
@@ -67,10 +71,18 @@ function sendAppeal() {
     console.log("Your appeal was successfuly sent to the server!");
   }
   else {
-    appeals.push({text : text});
-    localStorage.setItem('appeals', JSON.stringify(appeals));
+    storage.provider.get('appeals', function(data) {
+      if (data) {
+        appeals = data;
+      }
+      else {
+        appeals = [];
+      }
+      appeals.push({text: text});
+      storage.provider.add('appeals', appeals);
 
-    console.log("Your appeal was successfuly sent to the localStorage!");
+      console.log("Your appeal was successfuly sent to the provider!");
+    });
   }
 }
 
