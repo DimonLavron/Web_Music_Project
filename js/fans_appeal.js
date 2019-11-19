@@ -4,16 +4,50 @@ var storage;
 document.addEventListener('DOMContentLoaded', function() {
   storage = new Provider();
 
+  if (isOnline()) {
+    var req = new XMLHttpRequest();
+    req.open("GET", "/fans_appeal", true);
+    req.send();
+
+    req.onreadystatechange = function() {
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status != 200) {
+          console.log("Something goes wrong!");
+        }
+        else {
+          var data = JSON.parse(req.responseText);
+          for (i = 0; i < data.length; i++) {
+            publishAppeal(data[i]);
+          }
+        }
+      }
+    }
+  }
+
   window.addEventListener('online', function() {
-    storage.provider.get('appeals', function(data) {
+    storage.provider.get('appeals', function(data) { 
       if (data) {
         for (i = 0; i < data.length; i++) {
-          publishAppeal(data[i].text);
+          publishAppeal(data[i]);
         }
         storage.provider.delete('appeals');
         appeals = [];
-        // Data Transfer function
-        console.log('Appeals successfuly transfered from provider to server!');
+
+        var req = new XMLHttpRequest();
+        req.open("POST", "/fans_appeal", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.send(JSON.stringify(data));
+
+        req.onreadystatechange = function() {
+          if (req.readyState === XMLHttpRequest.DONE) {
+            if (req.status != 200) {
+              console.log("Something goes wrong!");
+            }
+            else {
+              console.log('Appeals successfuly transfered from provider to server!');
+            }
+          }
+        }
       }
     });
   });
@@ -43,10 +77,19 @@ function formatDate(num) {
   return '' + num;
 }
 
-function publishAppeal(text) {
+function getCurrentDate() {
   var date = new Date();
-  var header = createCard('Fan name <br>' + formatDate(date.getHours()) + ':' + formatDate(date.getMinutes()) + '<br>' + formatDate(date.getDate()) + '.' + formatDate(date.getMonth() + 1) + '.' + formatDate(date.getFullYear() % 100), true);
-  var body = createCard(text, false);
+  return formatDate(date.getDate()) + '.' + formatDate(date.getMonth() + 1) + '.' + formatDate(date.getFullYear() % 100);
+}
+
+function getCurrentTime() {
+  var date = new Date();
+  return formatDate(date.getHours()) + ':' + formatDate(date.getMinutes());
+}
+
+function publishAppeal(appeal) {
+  var header = createCard(appeal.fanName + '<br>' + appeal.time + '<br>' + appeal.date, true);
+  var body = createCard(appeal.text, false);
   var sec = document.createElement('section');
   sec.className = 'overflow-auto';
   sec.appendChild(header);
@@ -66,9 +109,24 @@ function sendAppeal() {
     alert('Appeal can not be empty!');
     return;
   }
+  var obj = {fanName: "Fan name", date: getCurrentDate(), time: getCurrentTime(), text: text.trim()}
 
   if (isOnline()) {
-    console.log("Your appeal was successfuly sent to the server!");
+    var req = new XMLHttpRequest();
+    req.open("POST", "/fans_appeal", true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.send(JSON.stringify(obj));
+
+    req.onreadystatechange = function() {
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status != 200) {
+          alert("Something goes wrong!");
+        }
+        else {
+          alert("Success!");
+        }
+      }
+    }
   }
   else {
     storage.provider.get('appeals', function(data) {
@@ -78,7 +136,7 @@ function sendAppeal() {
       else {
         appeals = [];
       }
-      appeals.push({text: text});
+      appeals.push(obj);
       storage.provider.add('appeals', appeals);
 
       console.log("Your appeal was successfuly sent to the provider!");

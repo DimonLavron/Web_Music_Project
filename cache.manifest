@@ -1,11 +1,17 @@
 CACHE MANIFEST
 
 CACHE:
+admin.html
 news.html
+fans_appeal.html
 css/main.css
 images/The-Neighbourhood-Logo_Light.png
 images/theneighbourhood.jpg
 images/The_Neighbourhood_-_Wiped_Out.jpg
+js/admin.js
+js/db.js
+js/fans_appeal.js
+js/news.js
 
 NETWORK:
 

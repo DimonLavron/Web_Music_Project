@@ -4,6 +4,26 @@ var storage;
 document.addEventListener('DOMContentLoaded', function() {
   storage = new Provider();
 
+  if (isOnline()) {
+    var req = new XMLHttpRequest();
+    req.open("GET", "/news", true);
+    req.send();
+
+    req.onreadystatechange = function() {
+      if (req.readyState === XMLHttpRequest.DONE) {
+        if (req.status != 200) {
+          console.log("Something goes wrong!");
+        }
+        else {
+          var data = JSON.parse(req.responseText);
+          for (i = 0; i < data.length; i++) {
+            publishNews(data[i]);
+          }
+        }
+      }
+    }
+  }
+
   window.addEventListener('online', function() {
     storage.provider.get('news', function(data) {
       if (data) {
@@ -12,8 +32,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         storage.provider.delete('news');
         news = [];
-        // Data Transfer function
-        console.log('News successfuly transfered from provider to server!');
+
+        var req = new XMLHttpRequest();
+        req.open("POST", "/news", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.send(JSON.stringify(data));
+
+        req.onreadystatechange = function() {
+          if (req.readyState === XMLHttpRequest.DONE) {
+            if (req.status != 200) {
+              console.log("Something goes wrong!");
+            }
+            else {
+              console.log('News successfuly transfered from provider to server!');
+            }
+          }
+        }
       }
     });
   });
